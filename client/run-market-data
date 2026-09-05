@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ./src/market_data_client "$@"
