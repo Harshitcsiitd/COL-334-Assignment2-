@@ -1,2 +1,5 @@
 #!/bin/sh
-exec ./src/market_data_client "$@"
+# Launches a Market-Data Client:  ./client/run-market-data 127.0.0.1 5000 JNST [IMCT]
+cd "$(dirname "$0")/.." || exit 1
+[ -x ./market_data_client ] || make market_data_client >/dev/null 2>&1
+exec ./market_data_client "$@"

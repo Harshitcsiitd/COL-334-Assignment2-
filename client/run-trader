@@ -1,2 +1,5 @@
 #!/bin/sh
-exec ./src/trader_client "$@"
+# Launches a Trader Client:  ./client/run-trader 127.0.0.1 5000 alice
+cd "$(dirname "$0")/.." || exit 1
+[ -x ./trader_client ] || make trader_client >/dev/null 2>&1
+exec ./trader_client "$@"
