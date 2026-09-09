@@ -203,6 +203,10 @@ private:
                 // peer drains, and go back to serving everyone else. On a
                 // blocking socket this send() would sleep and freeze the whole
                 // server for one slow reader (Experiment 7).
+                if (g_verbose)
+                    std::fprintf(stderr,
+                        "[flush] fd=%d send() EAGAIN, %zu bytes still queued, enabling EVFILT_WRITE\n",
+                        c.fd, c.out.pending());
                 if (!c.write_enabled) {
                     kq_change(kq_, c.fd, EVFILT_WRITE, EV_ENABLE);
                     c.write_enabled = true;
