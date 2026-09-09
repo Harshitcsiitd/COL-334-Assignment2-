@@ -1,0 +1,38 @@
+=== Experiment 5: Multiple Clients and I/O Multiplexing (Optional) ===
+
+Started Exchange Server (PID 48312).
+[server] listening on 127.0.0.1:5000 (fd=3, kq=4)
+[server] accepted fd=5 owner=1 from 127.0.0.1:49447
+Exchange Server is listening.
+
+Creating five simultaneous TCP connections...
+
+[server] fd=5: connection reset by peer (RST, ECONNRESET)
+[server] closing fd=5 owner=1
+Client 1: connected from 127.0.0.1:53560
+[server] accepted fd=5 owner=2 from 127.0.0.1:53560
+[server] accepted fd=6 owner=3 from 127.0.0.1:35050
+Client 2: connected from 127.0.0.1:35050
+Client 3: connected from 127.0.0.1:37828
+Client 4: connected from 127.0.0.1:35120
+[server] accepted fd=7 owner=4 from 127.0.0.1:37828
+Client 5: connected from 127.0.0.1:59662
+
+Clients 1, 3, and 5 will send application messages.
+Clients 2 and 4 will remain idle.
+
+[server] accepted fd=8 owner=5 from 127.0.0.1:35120
+Client 1: sent application data.
+[server] accepted fd=9 owner=6 from 127.0.0.1:59662
+[recv] fd=5 n=15 data=LOGIN client_1
+
+Client 3: sent application data.
+[recv] fd=7 n=15 data=LOGIN client_3
+
+Client 5: sent application data.
+[recv] fd=9 n=15 data=LOGIN client_5
+
+
+The experiment is now in the observation phase.
+Investigate which connections were active.
+Press Ctrl-C when you are finished.

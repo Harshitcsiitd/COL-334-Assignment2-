@@ -1,0 +1,27 @@
+=== Experiment 4: One Client Should Not Stall the Others ===
+
+Started Exchange Server (PID 45949).
+[server] listening on 127.0.0.1:5000 (fd=3, kq=4)
+[server] accepted fd=5 owner=1 from 127.0.0.1:25937
+Exchange Server is listening.
+
+[server] fd=5: connection reset by peer (RST, ECONNRESET)
+[server] closing fd=5 owner=1
+Client 1: connected from 127.0.0.1:33204
+
+Client 1 will send an incomplete application message.
+[server] accepted fd=5 owner=2 from 127.0.0.1:33204
+Client 1 will now remain silent.
+
+[recv] fd=5 n=20 data=LOGIN blocked_client
+Client 2: connected from 127.0.0.1:38298[server] accepted fd=6 owner=3 from 127.0.0.1:38298
+
+Client 2 will send a complete application message.
+[recv] fd=6 n=20 data=LOGIN active_client
+
+
+Client 2 response: 'OK'
+Elapsed time: 0.001 seconds
+
+Investigate the behavior of both TCP connections.
+Press Ctrl-C when you are finished.

@@ -1,0 +1,24 @@
+=== Experiment 2: Observing TCP Connection States ===
+
+Started Exchange Server (PID 17118).
+[server] listening on 127.0.0.1:5000 (fd=3, kq=4)
+Exchange Server is listening.[server] accepted fd=5 owner=1 from 127.0.0.1:27076
+[server] fd=5: connection reset by peer (RST, ECONNRESET)
+
+
+[server] closing fd=5 owner=1
+[server] accepted fd=5 owner=2 from 127.0.0.1:50394
+Experiment client: connected from 127.0.0.1:50394
+
+Phase 1: the client is connected and idle.
+Investigate the connection now.
+
+Phase 2: closing the client connection.
+Investigate the connection again.
+
+The Exchange Server will remain running for 15 seconds.
+[server] fd=5: peer closed (FIN, recv==0)
+[server] closing fd=5 owner=2
+
+Experiment finished.
+Stopping Exchange Server...

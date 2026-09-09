@@ -1,0 +1,177 @@
+06:51:12
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:13
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:13
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:14
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:14
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:15
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:15
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:16
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:16
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:17
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:18
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:18
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:19
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:19
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:20
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:20
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:21
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:21
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:22
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:22
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:23
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:23
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:24
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:24
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:25
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:26
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:26
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:27
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:27
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:28
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:28
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:29
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:29
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:30
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:30
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:31
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:32
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:32
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:33
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:33
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:34
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:34
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:35
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:35
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:36
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:36
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:37
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:37
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:38
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:38
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:39
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:40
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:40
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:41
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:41
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:42
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:42
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:43
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
+06:51:43
+  PID    TID COMM                TDNAME              KSTACK                       
+45949 100191 exchange_server     -                   mi_switch sleepq_catch_signals sleepq_wait_sig _sleep kqueue_scan kqueue_kevent kern_kevent kern_kevent_generic sys_kevent do_el0_sync handle_el0_sync 
