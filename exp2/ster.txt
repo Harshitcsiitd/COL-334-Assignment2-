@@ -1,0 +1,55 @@
+root@exchange:/home/cooluser1 # sysctl net.inet.tcp.nolocaltimewait=0
+net.inet.tcp.nolocaltimewait: 1 -> 0
+root@exchange:/home/cooluser1 # egrep -n 'TIME_WAIT|ESTABLISHED' /tmp/exp2_run2.states | tail -20
+1743:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1747:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1751:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1755:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1759:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1763:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1767:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1771:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1775:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1779:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1783:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1787:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1791:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1795:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1799:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1803:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1807:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1811:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1815:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+1819:tcp4           0      0 127.0.0.1.50394        127.0.0.1.5000         TIME_WAIT  
+root@exchange:/home/cooluser1 # tail -n 15 /tmp/exp2_run2.txt
+root@exchange:/home/cooluser1 # tail -n 15 /tmp/exp2_run2.txt
+root@exchange:/home/cooluser1 # tail -n 15 /tmp/exp2_run2.txt
+root@exchange:/home/cooluser1 # cat /tmp/exp2_packets.txt
+2026-09-09 05:36:16.374364 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60, bad cksum 0 (->3cba)!)
+    127.0.0.1.16396 > 127.0.0.1.5000: Flags [S], cksum 0xfe30 (incorrect -> 0xd79a), seq 2422076695, win 65535, options [mss 16344,nop,wscale 6,sackOK,TS val 2402144264 ecr 0], length 0
+2026-09-09 05:36:16.374389 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 40, bad cksum 0 (->3cce)!)
+    127.0.0.1.5000 > 127.0.0.1.16396: Flags [R.], cksum 0xfe1c (incorrect -> 0xd8c3), seq 0, ack 2422076696, win 0, length 0
+2026-09-09 05:36:16.478557 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60, bad cksum 0 (->3cba)!)
+    127.0.0.1.18888 > 127.0.0.1.5000: Flags [S], cksum 0xfe30 (incorrect -> 0x282d), seq 2252824699, win 65535, options [mss 16344,nop,wscale 6,sackOK,TS val 3860512127 ecr 0], length 0
+2026-09-09 05:36:16.478689 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60, bad cksum 0 (->3cba)!)
+    127.0.0.1.5000 > 127.0.0.1.18888: Flags [S.], cksum 0xfe30 (incorrect -> 0x63bd), seq 3734320936, ack 2252824700, win 65535, options [mss 16344,nop,wscale 6,sackOK,TS val 4102797844 ecr 3860512127], length 0
+2026-09-09 05:36:16.478708 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 0 (->3cc2)!)
+    127.0.0.1.18888 > 127.0.0.1.5000: Flags [.], cksum 0xfe28 (incorrect -> 0xc7af), seq 2252824700, ack 3734320937, win 1277, options [nop,nop,TS val 3860512127 ecr 4102797844], length 0
+2026-09-09 05:36:16.478808 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 0 (->3cc2)!)
+    127.0.0.1.18888 > 127.0.0.1.5000: Flags [R.], cksum 0xfe28 (incorrect -> 0xcca8), seq 2252824700, ack 3734320937, win 0, options [nop,nop,TS val 3860512127 ecr 4102797844], length 0
+2026-09-09 05:36:16.478942 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60, bad cksum 0 (->3cba)!)
+    127.0.0.1.45102 > 127.0.0.1.5000: Flags [S], cksum 0xfe30 (incorrect -> 0x1626), seq 1570087077, win 65535, options [mss 16344,nop,wscale 6,sackOK,TS val 1230958180 ecr 0], length 0
+2026-09-09 05:36:16.478949 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60, bad cksum 0 (->3cba)!)
+    127.0.0.1.5000 > 127.0.0.1.45102: Flags [S.], cksum 0xfe30 (incorrect -> 0xe847), seq 580617684, ack 1570087078, win 65535, options [mss 16344,nop,wscale 6,sackOK,TS val 1126646326 ecr 1230958180], length 0
+2026-09-09 05:36:16.478956 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 0 (->3cc2)!)
+    127.0.0.1.45102 > 127.0.0.1.5000: Flags [.], cksum 0xfe28 (incorrect -> 0x4c3a), seq 1570087078, ack 580617685, win 1277, options [nop,nop,TS val 1230958180 ecr 1126646326], length 0
+2026-09-09 05:36:26.504622 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 0 (->3cc2)!)
+    127.0.0.1.45102 > 127.0.0.1.5000: Flags [F.], cksum 0xfe28 (incorrect -> 0x250f), seq 1570087078, ack 580617685, win 1277, options [nop,nop,TS val 1230968206 ecr 1126646326], length 0
+2026-09-09 05:36:26.504656 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 0 (->3cc2)!)
+    127.0.0.1.5000 > 127.0.0.1.45102: Flags [.], cksum 0xfe28 (incorrect -> 0xfde4), seq 580617685, ack 1570087079, win 1277, options [nop,nop,TS val 1126656352 ecr 1230968206], length 0
+2026-09-09 05:36:26.504813 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 0 (->3cc2)!)
+    127.0.0.1.5000 > 127.0.0.1.45102: Flags [F.], cksum 0xfe28 (incorrect -> 0xfde3), seq 580617685, ack 1570087079, win 1277, options [nop,nop,TS val 1126656352 ecr 1230968206], length 0
+2026-09-09 05:36:26.504825 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 0 (->3cc2)!)
+    127.0.0.1.45102 > 127.0.0.1.5000: Flags [.], cksum 0xfe28 (incorrect -> 0xfde3), seq 1570087079, ack 580617686, win 1277, options [nop,nop,TS val 1230968206 ecr 1126656352], length 0
+
+root@exchange:/home/cooluser1 # 

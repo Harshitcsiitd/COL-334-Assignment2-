@@ -1,0 +1,38 @@
+root@exchange:/home/cooluser1 # PID=$(pgrep -n exchange_server)
+root@exchange:/home/cooluser1 # netstat -an -p tcp | egrep 'Proto|\.5000'
+Proto     Recv-Q Send-Q Local Address          Foreign Address        (state)    
+tcp4           0      0 127.0.0.1.5000         127.0.0.1.41506        ESTABLISHED
+tcp4           0      0 127.0.0.1.41506        127.0.0.1.5000         ESTABLISHED
+tcp4           0      0 127.0.0.1.5000         *.*                    LISTEN     
+root@exchange:/home/cooluser1 # procstat -f $PID | grep TCP
+12954 exchange_server      3 s - rw---n--   2       0 TCP 0 0 127.0.0.1:5000 *:0
+12954 exchange_server      5 s - rw---n--   3       0 TCP 0 0 127.0.0.1:5000 127.0.0.1:41506
+root@exchange:/home/cooluser1 # sockstat -4 -p 5000
+USER     COMMAND    PID   FD  PROTO     LOCAL ADDRESS         FOREIGN ADDRESS      
+root     exchange_s 12954 3   tcp4      127.0.0.1:5000        *:*
+root     exchange_s 12954 5   tcp4      127.0.0.1:5000        127.0.0.1:41506
+root     python3.12 12948 3   tcp4      127.0.0.1:41506       127.0.0.1:5000
+root@exchange:/home/cooluser1 # netstat -an -p tcp | egrep 'Proto|\.5000'
+Proto     Recv-Q Send-Q Local Address          Foreign Address        (state)    
+tcp4           0      0 127.0.0.1.5000         *.*                    LISTEN     
+root@exchange:/home/cooluser1 # procstat -f $PID | grep TCP
+12954 exchange_server      3 s - rw---n--   2       0 TCP 0 0 127.0.0.1:5000 *:0
+root@exchange:/home/cooluser1 # netstat -an -p tcp | egrep 'Proto|\.5000'
+Proto     Recv-Q Send-Q Local Address          Foreign Address        (state)    
+tcp4           0      0 127.0.0.1.5000         *.*                    LISTEN     
+root@exchange:/home/cooluser1 # procstat -f $PID | grep TCP
+12954 exchange_server      3 s - rw---n--   2       0 TCP 0 0 127.0.0.1:5000 *:0
+root@exchange:/home/cooluser1 # netstat -an -p tcp | egrep 'Proto|\.5000'
+Proto     Recv-Q Send-Q Local Address          Foreign Address        (state)    
+tcp4           0      0 127.0.0.1.5000         *.*                    LISTEN     
+root@exchange:/home/cooluser1 # procstat -f $PID | grep TCP
+12954 exchange_server      3 s - rw---n--   2       0 TCP 0 0 127.0.0.1:5000 *:0
+root@exchange:/home/cooluser1 # netstat -an -p tcp | grep TIME_WAIT
+root@exchange:/home/cooluser1 # sysctl net.inet.tcp.msl
+net.inet.tcp.msl: 30000
+root@exchange:/home/cooluser1 # netstat -an -p tcp | grep TIME_WAIT
+root@exchange:/home/cooluser1 # sysctl net.inet.tcp.msl
+net.inet.tcp.msl: 30000
+root@exchange:/home/cooluser1 # sysctl net.inet.tcp.nolocaltimewait
+net.inet.tcp.nolocaltimewait: 1
+root@exchange:/home/cooluser1 # 

@@ -1,0 +1,76 @@
+root@exchange:/home/cooluser1 # while ! PID=$(pgrep -n exchange_server); do sleep 0.05; done; ktrace -i -f /tmp/exp5.kt -p $PID -t c
+root@exchange:/home/cooluser1 # ktrace -C
+root@exchange:/home/cooluser1 # kdump -f /tmp/exp5.kt -T | egrep 'kevent|recvfrom' | tee /tmp/exp5.syscalls
+ 48312 exchange_server 1788921749.808713937 RET   kevent 1
+ 48312 exchange_server 1788921749.808767437 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.808771770 RET   kevent 0
+ 48312 exchange_server 1788921749.808772520 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.808773770 RET   kevent 0
+ 48312 exchange_server 1788921749.808806020 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+ 48312 exchange_server 1788921749.808807437 RET   kevent 1
+ 48312 exchange_server 1788921749.808825353 CALL  recvfrom(0x5,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921749.808826937 RET   recvfrom -1 errno 54 Connection reset by peer
+ 48312 exchange_server 1788921749.808861103 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+ 48312 exchange_server 1788921749.808930228 RET   kevent 1
+ 48312 exchange_server 1788921749.808938978 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.808940228 RET   kevent 0
+ 48312 exchange_server 1788921749.808940978 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.808941728 RET   kevent 0
+ 48312 exchange_server 1788921749.808959603 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+ 48312 exchange_server 1788921749.808973770 RET   kevent 1
+ 48312 exchange_server 1788921749.808980312 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.808981478 RET   kevent 0
+ 48312 exchange_server 1788921749.808982187 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.808982978 RET   kevent 0
+ 48312 exchange_server 1788921749.808991770 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+ 48312 exchange_server 1788921749.809109103 RET   kevent 1
+ 48312 exchange_server 1788921749.809130562 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.809132645 RET   kevent 0
+ 48312 exchange_server 1788921749.809133520 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.809134562 RET   kevent 0
+ 48312 exchange_server 1788921749.809391728 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.809393103 RET   kevent 0
+ 48312 exchange_server 1788921749.809393853 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.809394645 RET   kevent 0
+ 48312 exchange_server 1788921749.809598687 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.809600270 RET   kevent 0
+ 48312 exchange_server 1788921749.809601145 CALL  kevent(0x4,0x80c06f88,0x1,0,0,0)
+ 48312 exchange_server 1788921749.809602020 RET   kevent 0
+ 48312 exchange_server 1788921749.809613895 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+ 48312 exchange_server 1788921749.809614978 RET   kevent 1
+ 48312 exchange_server 1788921749.809616228 CALL  recvfrom(0x5,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921749.809618478 RET   recvfrom 15/0xf
+ 48312 exchange_server 1788921749.809779228 CALL  recvfrom(0x5,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921749.809780187 RET   recvfrom -1 errno 35 Resource temporarily unavailable
+ 48312 exchange_server 1788921749.809781478 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+ 48312 exchange_server 1788921750.332646812 RET   kevent 1
+ 48312 exchange_server 1788921750.332672603 CALL  recvfrom(0x7,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921750.332684478 RET   recvfrom 15/0xf
+ 48312 exchange_server 1788921750.332770645 CALL  recvfrom(0x7,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921750.332772728 RET   recvfrom -1 errno 35 Resource temporarily unavailable
+ 48312 exchange_server 1788921750.332775228 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+ 48312 exchange_server 1788921750.843996020 RET   kevent 1
+ 48312 exchange_server 1788921750.844029020 CALL  recvfrom(0x9,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921750.844054270 RET   recvfrom 15/0xf
+ 48312 exchange_server 1788921750.844112145 CALL  recvfrom(0x9,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921750.844113145 RET   recvfrom -1 errno 35 Resource temporarily unavailable
+ 48312 exchange_server 1788921750.844114228 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+ 48312 exchange_server 1788921761.295811228 RET   kevent 5
+ 48312 exchange_server 1788921761.295834562 CALL  recvfrom(0x5,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921761.295870228 RET   recvfrom 0
+ 48312 exchange_server 1788921761.295981687 CALL  recvfrom(0x6,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921761.295983895 RET   recvfrom 0
+ 48312 exchange_server 1788921761.296012770 CALL  recvfrom(0x7,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921761.296014562 RET   recvfrom 0
+ 48312 exchange_server 1788921761.296038270 CALL  recvfrom(0x8,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921761.296039937 RET   recvfrom 0
+ 48312 exchange_server 1788921761.296062312 CALL  recvfrom(0x9,0x80c05fa8,0x1000,0,0,0)
+ 48312 exchange_server 1788921761.296063895 RET   recvfrom 0
+ 48312 exchange_server 1788921761.296132853 CALL  kevent(0x4,0,0,0x80c07030,0x40,0)
+root@exchange:/home/cooluser1 # kdump -f /tmp/exp5.kt -T | grep recvfrom | awk '{print $NF, $0}' | grep -o 'recvfrom(0x[0-9a-f]*' | sort | uniq -c
+   8 recvfrom(0x5
+   2 recvfrom(0x6
+   6 recvfrom(0x7
+   2 recvfrom(0x8
+   6 recvfrom(0x9
+root@exchange:/home/cooluser1 # =

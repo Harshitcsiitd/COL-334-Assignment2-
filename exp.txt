@@ -1,0 +1,97 @@
+variable.png is Your report requires a table of your VM's default kernel variables.
+Experiment 1: Sockets
+T2 (Poller): ~/tools/poll-tcp.sh 1
+T3 (Sniffer): tcpdump -i lo0 -n -S -tttt -vv 'tcp port 5000' | tee /tmp/exp1.txt  
+T1 (Harness): python3 experiment.py 1 2>&1 | tee /tmp/exp1.log  
+T4 (Inspection): PID=$(pgrep -n exchange_server) 
+followed by netstat -an -p tcp | egrep 'Proto|\.5000', sockstat -4 -p 5000, 
+and procstat -f $PID | egrep 'PID|TCP|kqueue'  
+
+
+Experiment 2: TCP States
+T4 (Setup): sysctl net.inet.tcp.nolocaltimewait=0  
+T2 (Poller): ~/tools/poll-tcp.sh 0.1 /tmp/exp2.states  
+T3 (Sniffer): tcpdump -l -i lo0 -n -S -vv -tttt 'tcp port 5000' > /tmp/exp2_packets.txt  
+T1 (Harness): SX_VERBOSE=1 python3 -u experiment.py 2 2>&1 | tee /tmp/exp2.log  
+
+T4 (Inspection): netstat -an -p tcp | grep TIME_WAIT, then egrep -n 'TIME_WAIT|ESTABLISHED' /tmp/exp2.states | tail -20, and finally cat /tmp/exp2_packets.txt  
+
+
+Experiment 3: Byte Stream
+T4 (Setup): while ! PID=$(pgrep -n exchange_server); do sleep 0.05; done; ktrace -i -f /tmp/exp3.kt -p $PID -t c
+T2 (Poller): ~/tools/poll-tcp.sh 0.1T3 (Sniffer): tcpdump -l -i lo0 -n -S -vv -tttt 'tcp port 5000' | tee /tmp/exp3.txt
+T1 (Harness): SX_VERBOSE=1 python3 -u experiment.py 3 2>&1 | tee /tmp/exp3.log
+T4 (Inspection): ktrace -C, followed by kdump -f /tmp/exp3.kt -T | egrep 'kevent|recvfrom|sendto|write' | head -60
+
+
+
+Experiment 4
+T4 (Setup): Start the proactive trace loop to catch the process the exact millisecond it spawns.
+while ! PID=$(pgrep -n exchange_server); do sleep 0.05; done; ktrace -i -f /tmp/exp4.kt -p $PID -t c
+
+T2 (Poller):
+~/tools/poll-tcp.sh 0.2
+T3 (Sniffer):
+tcpdump -l -i lo0 -n -S -tttt -vv 'tcp port 5000' > /tmp/exp4_packets.txt
+
+T1 (Harness):SX_VERBOSE=1 python3 -u experiment.py 4 2>&1 | tee /tmp/exp4.log  
+T5 (Active Inspection): The moment T1 starts, run the kernel stack sampler in T5 (open a new tab or stop the setup loop if it hung) to record where the thread sleeps. Let this run until the experiment finishes, then press Ctrl-C.
+PID=$(pgrep -n exchange_server); while :; do date '+%H:%M:%S'; procstat -k $PID; sleep 0.5; done > /tmp/exp4.kstack
+
+
+T4 (Post-Run Analysis): Stop tracing and analyze your logs.
+ktrace -C  
+cat /tmp/exp4_packets.txt  
+kdump -f /tmp/exp4.kt -T | egrep 'kevent|recvfrom|accept|sendto' | tail -40
+ cat /tmp/exp4.kstack 
+
+
+
+
+Experiment 5
+Start the Trace Loop
+ (T4):Setup.Paste this in T4 so it catches the server the instant it spawns:
+while ! PID=$(pgrep -n exchange_server); do sleep 0.05; done; ktrace -i -f /tmp/exp5.kt -p $PID -t c
+Start Polling (T2):Setup.We need the extended netstat view for this run to observe rcvtime and socket buffers.
+~/tools/poll-tcpx.sh 0.1 /tmp/exp5.tcpx
+Start Sniffing (T3):Setup.
+tcpdump -l -i lo0 -n -S -tttt 'tcp port 5000' > /tmp/exp5_packets.txt5
+Run the Harness (T1):Execution.Start the experiment. It will spawn 5 clients, but only 1, 3, and 5 will send data.
+SX_VERBOSE=1 python3 -u experiment.py 5 2>&1 | tee /tmp/exp5.log
+Map File Descriptors (T5):Active Mapping.Crucial Step: While T1 is in its 15-second observation window, run this in a new tab (T5) to capture the file descriptors before the server closes:
+PID=$(pgrep -n exchange_server); procstat -f $PID | grep TCP | tee /tmp/exp5.fdmap; sockstat -4 -c -p 5000
+
+Post-Run Extraction (Run in T4 after T1 finishes)Stop the trace and generate the 
+syscall count mapping:
+ktrace -C 
+kdump -f /tmp/exp5.kt -T | egrep 'kevent|recvfrom' | tee /tmp/exp5.syscalls  
+Extract and count the exact recvfrom calls per descriptor:
+kdump -f /tmp/exp5.kt -T | grep recvfrom | awk '{print $NF, $0}' | grep -o 'recvfrom(0x[0-9a-f]*' | sort | uniq -c
+
+Capture the netstat -an -p tcp -x output (from T2 or T5)(did when sever closed)
+
+
+Experiment 6
+
+T4 while ! PID=$(pgrep -n exchange_server); do sleep 0.05; done; ktrace -i -f /tmp/exp6.kt -p $PID -t c
+T2 ~/tools/poll-tcp.sh 0.1 /tmp/exp6.states
+T3 tcpdump -l -i lo0 -n -S -vv -tttt 'tcp port 5000' > /tmp/exp6_packets.txt
+T1 SX_VERBOSE=1 python3 -u experiment.py 6 2>&1 | tee /tmp/exp6.log
+T5
+Open a new tab (T5). You need to run these commands twice during the experiment at specific times:
+
+First time: While T1 says "Part A: orderly connection termination... Investigate the TCP traffic and connection state" (you have a 10-second window).
+PID=$(pgrep -n exchange_server); netstat -an -p tcp | egrep 'Proto|\.5000'; procstat -f $PID | grep TCP
+
+Second time: Immediately after T1 says "The client will now close abortively."
+PID=$(pgrep -n exchange_server); netstat -an -p tcp | egrep 'Proto|\.5000'; procstat -f $PID | grep TCP
+
+ost-Run Extraction 
+(Run in T4 after T1 finishes)Clear the trace lock:
+ktrace -C 
+ Extract the syscalls:
+ kdump -f /tmp/exp6.kt -T | egrep 'kevent|recvfrom|shutdown|close' | tail -40 
+  Filter your server logs for the disconnect events:
+  grep -E 'peer closed|reset by peer' /tmp/exp6.log  
+  Isolate the FIN and RST packets from your sniffer dump:
+  cat /tmp/exp6_packets.txt | egrep 'Flags \[F|Flags \[R'
