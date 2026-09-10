@@ -51,7 +51,7 @@ inline int make_listen_socket(const char* ip, std::uint16_t port) {
         return -1;
     }
     if (!set_nonblocking(fd)) { close(fd); return -1; }
-    if (listen(fd, SOMAXCONN) < 0) {
+    if (listen(fd, 4096) < 0) { //initially it was SOMAXCONN but for bonus we need to change it to 4096
         perror("listen");
         close(fd);
         return -1;
