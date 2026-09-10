@@ -203,6 +203,9 @@ private:
                 // peer drains, and go back to serving everyone else. On a
                 // blocking socket this send() would sleep and freeze the whole
                 // server for one slow reader (Experiment 7).
+                std::fprintf(stderr,
+                    "[flush] fd=%d send() EAGAIN, %zu bytes still queued, enabling EVFILT_WRITE\n",
+                    c.fd, c.out.pending());
                 if (!c.write_enabled) {
                     kq_change(kq_, c.fd, EVFILT_WRITE, EV_ENABLE);
                     c.write_enabled = true;
@@ -374,7 +377,7 @@ private:
 int main(int argc, char** argv) {
     const char* ip = "127.0.0.1";
     std::uint16_t port = 5000;
-
+    if (const char* e = getenv("SX_VERBOSE"); e && *e && e[0] != '0') g_verbose = true;
     int positional = 0;
     for (int i = 1; i < argc; ++i) {
         if (std::strcmp(argv[i], "-v") == 0) { g_verbose = true; continue; }
