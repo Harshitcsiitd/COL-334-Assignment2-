@@ -1,6 +1,0 @@
-48312 exchange_server      3 s - rw---n--   2       0 TCP 0 0 127.0.0.1:5000 *:0
-48312 exchange_server      5 s - rw---n--   3       0 TCP 0 0 127.0.0.1:5000 127.0.0.1:53560
-48312 exchange_server      6 s - rw---n--   3       0 TCP 0 0 127.0.0.1:5000 127.0.0.1:35050
-48312 exchange_server      7 s - rw---n--   3       0 TCP 0 0 127.0.0.1:5000 127.0.0.1:37828
-48312 exchange_server      8 s - rw---n--   3       0 TCP 0 0 127.0.0.1:5000 127.0.0.1:35120
-48312 exchange_server      9 s - rw---n--   3       0 TCP 0 0 127.0.0.1:5000 127.0.0.1:59662

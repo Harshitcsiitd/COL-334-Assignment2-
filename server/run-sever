@@ -1,0 +1,6 @@
+#!/bin/sh
+# Launches the Exchange Server. All arguments are passed through.
+#   ./server/run-server 127.0.0.1 5000 [-v]
+cd "$(dirname "$0")/.." || exit 1
+[ -x ./exchange_server ] || make exchange_server >/dev/null 2>&1
+exec ./exchange_server "$@" -v
