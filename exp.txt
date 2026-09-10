@@ -86,7 +86,7 @@ PID=$(pgrep -n exchange_server); netstat -an -p tcp | egrep 'Proto|\.5000'; proc
 Second time: Immediately after T1 says "The client will now close abortively."
 PID=$(pgrep -n exchange_server); netstat -an -p tcp | egrep 'Proto|\.5000'; procstat -f $PID | grep TCP
 
-ost-Run Extraction 
+Post-Run Extraction 
 (Run in T4 after T1 finishes)Clear the trace lock:
 ktrace -C 
  Extract the syscalls:
@@ -95,3 +95,26 @@ ktrace -C
   grep -E 'peer closed|reset by peer' /tmp/exp6.log  
   Isolate the FIN and RST packets from your sniffer dump:
   cat /tmp/exp6_packets.txt | egrep 'Flags \[F|Flags \[R'
+
+
+
+
+Experiment 8
+sysctl net.inet.tcp.always_keepalive net.inet.tcp.keepidle net.inet.tcp.keepintvl
+T4 while ! PID=$(pgrep -n exchange_server); do sleep 0.05; done; ktrace -i -f /tmp/exp8.kt -p $PID -t c
+T2 ~/tools/poll-tcp.sh 0.2 /tmp/exp8.states & ~/tools/poll-tcpx.sh 0.5
+T3 tcpdump -l -i lo0 -n -S -vv -tttt 'tcp port 5000' > /tmp/exp8_packets.txt
+
+T1
+ SX_VERBOSE=1 python3 -u experiment.py 8 2>&1 | tee /tmp/exp8.log
+
+ T5 PID=$(pgrep -n exchange_server); sockstat -4 -p 5000; procstat -f $PID | grep TCP | tee /tmp/exp8.fdmap.before; netstat -an -p tcp | egrep 'Proto|\.5000'
+ Capture the 'After' State (T5):
+ Active Mapping.When T1 says "The client process has disappeared.", immediately run this:
+ PID=$(pgrep -n exchange_server); netstat -an -p tcp | egrep 'Proto|\.5000'; procstat -f $PID | grep TCP | tee /tmp/exp8.fdmap.after; diff /tmp/exp8.fdmap.before /tmp/exp8.fdmap.after
+ 
+ Post run
+ ktrace -C
+ kdump -f /tmp/exp8.kt -T | egrep 'kevent|recvfrom|sendto|close' | tail -40
+ grep -E 'reset by peer|peer closed|closing fd' /tmp/exp8.log
+ cat /tmp/exp8_packets.txt | egrep 'Flags \[R|Flags \[F'
