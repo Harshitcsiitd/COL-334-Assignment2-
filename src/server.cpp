@@ -378,7 +378,7 @@ private:
 int main(int argc, char** argv) {
     const char* ip = "127.0.0.1";
     std::uint16_t port = 5000;
-
+    if (const char* e = getenv("SX_VERBOSE"); e && *e && e[0] != '0') g_verbose = true;
     int positional = 0;
     for (int i = 1; i < argc; ++i) {
         if (std::strcmp(argv[i], "-v") == 0) { g_verbose = true; continue; }

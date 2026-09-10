@@ -98,6 +98,29 @@ ktrace -C
 
 
 
+Experiment 7
+T2 — kernel state, unbounded:
+sh
+while :; do
+  printf '=== %s ===\n' "$(date '+%H:%M:%S')"
+  netstat -an -p tcp | awk 'NR<=2 || $4 ~ /\.5000$/ || $5 ~ /\.5000$/'
+  sleep 0.5
+done | tee /tmp/exp7_states.log
+T3 — packets:
+sh
+tcpdump -i lo0 -n -S -vv -tttt -B 4096 'tcp port 5000' | tee /tmp/exp7.txt
+T4 — the fixed monitor:
+sh
+ tools/watch7.sh | tee /tmp/exp7_t4.log
+
+python3 -u experiment.py 7 2>&1 | tee /tmp/exp7.log                          # T1
+
+grep -c '\[flush\]' /tmp/exp7.log                    # how many times it refused
+grep '\[flush\]' /tmp/exp7.log | tail -3             # peak queued bytes
+grep -n 'win 0' /tmp/exp7.txt | grep -v 'Flags \[R'  # zero-window advertisement
+awk '$1=="tcp4" { if ($2+0>mr[$4]) mr[$4]=$2+0; if ($3+0>ms[$4]) ms[$4]=$3+0 }
+     END { for (k in mr) printf "%-26s maxRecvQ=%-8d maxSendQ=%d\n", k, mr[k], ms[k] }' \
+  /tmp/exp7_states.log | sort    netstat -an -p tcp -x | awk 'NR<=2 || /\.5000/'
 
 Experiment 8
 sysctl net.inet.tcp.always_keepalive net.inet.tcp.keepidle net.inet.tcp.keepintvl
@@ -117,4 +140,4 @@ T1
  ktrace -C
  kdump -f /tmp/exp8.kt -T | egrep 'kevent|recvfrom|sendto|close' | tail -40
  grep -E 'reset by peer|peer closed|closing fd' /tmp/exp8.log
- cat /tmp/exp8_packets.txt | egrep 'Flags \[R|Flags \[F'
+ cat /tmp/exp8_packets.txt | egrep 'Flags \[R|Flags \[F' 
